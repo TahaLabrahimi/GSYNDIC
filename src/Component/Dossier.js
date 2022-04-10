@@ -5,9 +5,9 @@ export default function Dossier({folder}) {
       <div className="note">
         <div className="dossier-image"></div>
         <div id="statut">
-             {folder.statut}
+             {folder.statusNavigation.statusName}
         </div>
-        <p>{folder.titre}</p>
+        <p>{folder.title}</p>
     </div>
-  );
+  ); 
 }

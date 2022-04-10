@@ -7,73 +7,10 @@ import DossierList from "./DossierList";
 import "./Style.css";
 export default function DossierApp() {
   /*-------Use States--------*/
-  const [Folders, setFolders] = useState([
-    {
-      id_folder: 1,
-      titre: "folder1",
-      categorie: "categ1",
-      statut: "st1",
-      description: "hada howa l folder 1",
-    },
-    {
-      id_folder: 2,
-      titre: "folder2",
-      categorie: "categ1",
-      statut: "st2",
-      description: "hada howa l folder 2",
-    },
-    {
-      id_folder: 3,
-      titre: "folder3",
-      categorie: "categ2",
-      statut: "st2",
-      description: "hada howa l folder 3",
-    },
-    {
-      id_folder: 4,
-      titre: "aaaaa",
-      categorie: "categ2",
-      statut: "st2",
-      description: "hada howa l folder 4",
-    },
-  ]);
+  const [Folders, setFolders] = useState([]);
   const [foundUsers, setFoundUsers] = useState(Folders);
-  const [Categorie, setCategorie] = useState([
-    {
-      id_Categorie: 1,
-      categorie: "categ1",
-    },
-    {
-      id_Categorie: 2,
-      categorie: "categ2",
-    },
-    {
-      id_Categorie: 3,
-      categorie: "categ3",
-    },
-    {
-      id_Categorie: 4,
-      categorie: "categ4",
-    },
-  ]);
-  const [Statut, setStatut] = useState([
-    {
-      id_Statut: 1,
-      Statut: "st1",
-    },
-    {
-      id_Statut: 2,
-      Statut: "st2",
-    },
-    {
-      id_Statut: 3,
-      Statut: "st3",
-    },
-    {
-      id_Statut: 4,
-      Statut: "st4",
-    },
-  ]);
+  const [Categorie, setCategorie] = useState([]);
+  const [Statut, setStatut] = useState([]);
   const [statutcopy, setStatutcopy] = useState({
     id_Statut: null,
     Statut: "",
@@ -101,19 +38,43 @@ export default function DossierApp() {
     setchangeDescription(e.target.value);
   }
   function onClickCreeDossier() {
-    setFoundUsers([...foundUsers,{
-      id_folder: 5,
-      titre: changeTitre,
-      categorie: changeCategory,
-      statut: changeStatut,
-      description:changeDescription,
-    }]);
+    setFoundUsers([
+      ...foundUsers,
+      {
+        id_folder: 5,
+        titre: changeTitre,
+        categorie: changeCategory,
+        statut: changeStatut,
+        description: changeDescription,
+      },
+    ]);
   }
   /*------------------------------------------------------------*/
   /*--------------API-------------------------*/
-  useEffect(() => {
-    fetch("");
-  });
+  useEffect(
+    () => {
+      fetch("http://localhost:5052/api/Case/Status")
+        .then((Response) => Response.json())
+        .then((data) => {
+          setStatut(data);
+        });
+
+      fetch("http://localhost:5052/api/Case/Category")
+        .then((Response) => Response.json())
+        .then((data) => {
+          setCategorie(data);
+        });
+      fetch("http://localhost:5052/api/Case")
+        .then((Response) => Response.json())
+        .then((data) => {
+          setFolders(data);
+          
+        });
+    },
+    [setStatut],
+    [setCategorie],
+    [setFolders]
+  );
   /*-----------------------------------------------------*/
   /*Fonction */
   function handleChangeStatut(e) {

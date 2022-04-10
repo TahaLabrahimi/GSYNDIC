@@ -39,7 +39,7 @@ export default function DossierModal({
           <select aria-label="State" className="combo-Statut" id="comboCategorie" onChange={OnSaveStatut}>
             <option value="Select">Statuts</option>
             {Statut.map((st) => {
-              return <option value={st.Statut}>{st.Statut} </option>;
+              return <option value={st.statusName}>{st.statusName} </option>;
             })}
           </select>
           <img
@@ -61,7 +61,7 @@ export default function DossierModal({
           <select aria-label="Category" className="combo-Category" id="comboCategorie" onChange={OnSaveCategory}>
             <option value="Category">Categorie</option>
             {Categorie.map((cat) => {
-              return <option value={cat.categorie}>{cat.categorie} </option>;
+              return <option value={cat.categoryName}>{cat.categoryName} </option>;
             })}
           </select>
           <img

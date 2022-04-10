@@ -9,7 +9,7 @@ export default function DossierFilter({
     const st = e.target.value;
     if (st !== "Category") {
       const rs = Folders.filter((folder) => {
-        return folder.categorie.toLowerCase().includes(st.toLowerCase());
+        return folder.categoryNavigation.categoryName.toLowerCase().includes(st.toLowerCase());
       });
       setFoundUsers(rs);
     } else {
@@ -21,7 +21,7 @@ export default function DossierFilter({
     const st = e.target.value;
     if (st !== "Statut") {
       const rs = Folders.filter((folder) => {
-        return folder.statut.toLowerCase().includes(st.toLowerCase());
+        return folder.statusNavigation.statusName.toLowerCase().includes(st.toLowerCase());
       });
       setFoundUsers(rs);
     } else {
@@ -32,7 +32,7 @@ export default function DossierFilter({
     const keyword = e.target.value;
     if (keyword !== "") {
       const results = Folders.filter((folder) => {
-        return folder.titre.toLowerCase().includes(keyword.toLowerCase());
+        return folder.title.toLowerCase().includes(keyword.toLowerCase());
       });
       setFoundUsers(results);
     } else {
@@ -49,7 +49,7 @@ export default function DossierFilter({
             Statut
           </option>
           {Statut.map((st) => {
-            return <option value={st.Statut}>{st.Statut}</option>;
+            return <option value={st.statusName}>{st.statusName}</option>;
           })}
         </select>
       </form>
@@ -63,7 +63,7 @@ export default function DossierFilter({
             Category
           </option>
           {Categorie.map((cat) => {
-            return <option value={cat.categorie}>{cat.categorie}</option>;
+            return <option value={cat.categoryName}>{cat.categoryName}</option>;
           })}
         </select>
       </form>
