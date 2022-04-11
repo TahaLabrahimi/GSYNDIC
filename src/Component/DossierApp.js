@@ -12,12 +12,12 @@ export default function DossierApp() {
   const [Categorie, setCategorie] = useState([]);
   const [Statut, setStatut] = useState([]);
   const [statutcopy, setStatutcopy] = useState({
-    id_Statut: null,
-    Statut: "",
+    idStatus: null,
+    statusName: "",
   });
   const [CategoryCopy, setCategoryCopy] = useState({
-    id_Categorie: null,
-    categorie: "",
+    idCategory: null,
+    categoryName: "",
   });
   /* use state pour Cree Dossier*/
   const [changeStatut, setchangeStatut] = useState("");
@@ -38,50 +38,63 @@ export default function DossierApp() {
     setchangeDescription(e.target.value);
   }
   function onClickCreeDossier() {
-    setFoundUsers([
-      ...foundUsers,
-      {
-        id_folder: 5,
-        titre: changeTitre,
-        categorie: changeCategory,
-        statut: changeStatut,
-        description: changeDescription,
-      },
-    ]);
+    fetch('http://localhost:5052/api/Case',{
+             method : 'post',
+             headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+                'Access-Control-Allow-Origin': '*'
+             },
+             body :JSON.stringify({
+                title:changeTitre ,
+                description :changeDescription,
+                category : 1,
+                status:1
+             })
+         }).then(response=>{
+             console.log(response)
+             if(response.status==200){
+                 console.log("success")
+             }
+             return response.json
+         })
+  
   }
   /*------------------------------------------------------------*/
   /*--------------API-------------------------*/
+  var Categ = [];
+  var Stat = [];
+  var fold = [];
   useEffect(
-    () => {
-      fetch("http://localhost:5052/api/Case/Status")
+    async () => {
+      await fetch("http://localhost:5052/api/Case/Status")
         .then((Response) => Response.json())
         .then((data) => {
           setStatut(data);
         });
 
-      fetch("http://localhost:5052/api/Case/Category")
+      await fetch("http://localhost:5052/api/Case/Category")
         .then((Response) => Response.json())
         .then((data) => {
           setCategorie(data);
         });
-      fetch("http://localhost:5052/api/Case")
+      await fetch("http://localhost:5052/api/Case")
         .then((Response) => Response.json())
         .then((data) => {
-          setFolders(data);
-          
+          fold = data;
         });
+      setFoundUsers(fold);
+      setFolders(fold);
     },
     [setStatut],
-    [setCategorie],
-    [setFolders]
+    [setCategorie]
   );
+
   /*-----------------------------------------------------*/
   /*Fonction */
   function handleChangeStatut(e) {
     e.preventDefault();
-    setStatutcopy({ ...statutcopy, Statut: e.target.value });
+    setStatutcopy({ ...statutcopy, statusName: e.target.value });
   }
-
   function handeCreateStatut(e) {
     setStatut([...Statut, statutcopy]);
   }

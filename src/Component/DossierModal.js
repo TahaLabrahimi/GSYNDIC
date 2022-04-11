@@ -13,11 +13,14 @@ export default function DossierModal({
   OnSaveCategory,
   OnSaveTitre,
   OnsaveDescription,
-  onClickCreeDossier
+  onClickCreeDossier,
 }) {
   const [openStatut, setopenStatut] = useState(false);
   const [openCategory, setopenCategory] = useState(false);
-  function closeModal(){setopen(false)}
+ 
+  function closeModal() {
+    setopen(false);
+  }
   return (
     <div class="modalBackground">
       <div class="modalContainer">
@@ -28,26 +31,50 @@ export default function DossierModal({
         <input type="text" class="inputTitre" onChange={OnSaveTitre} />
         <br />
         <label class="Description">Description</label>
-        <input type="text" class="inputDescription" onChange={OnsaveDescription} />
+        <input
+          type="text"
+          class="inputDescription"
+          onChange={OnsaveDescription}
+        />
         <br />
-        <button class="btn-Creer" onClick={() => {
-          closeModal();
-          onClickCreeDossier();}}>
+        <button
+          class="btn-Creer"
+          onClick={() => {
+            closeModal();
+            onClickCreeDossier();
+          }}
+        >
           Creer
         </button>
+
         <form className="formStatut">
-          <select aria-label="State" className="combo-Statut" id="comboCategorie" onChange={OnSaveStatut}>
-            <option value="Select">Statuts</option>
+          <select
+            aria-label="State"
+            className="combo-Statut"
+            id="comboCategorie"
+            onChange={OnSaveStatut}
+          >
+            <option value="Statuts" selected>
+              Statuts
+            </option>
             {Statut.map((st) => {
-              return <option value={st.statusName}>{st.statusName} </option>;
+              return (
+                <option value={st.statusName}>
+                  {st.statusName}
+                </option>
+              );
             })}
           </select>
           <img
             src="../Media/add.png"
             alt=""
-            
             id="ajouteStatut"
             onClick={() => setopenStatut(true)}
+          />
+          <img
+            
+            src="../Media/trash-bin.png"
+            id="removeStatut"
           />
           {openStatut ? (
             <ModalStatut
@@ -58,10 +85,17 @@ export default function DossierModal({
           ) : null}
         </form>
         <form className="formCategory">
-          <select aria-label="Category" className="combo-Category" id="comboCategorie" onChange={OnSaveCategory}>
+          <select
+            aria-label="Category"
+            className="combo-Category"
+            id="comboCategorie"
+            onChange={OnSaveCategory}
+          >
             <option value="Category">Categorie</option>
             {Categorie.map((cat) => {
-              return <option value={cat.categoryName}>{cat.categoryName} </option>;
+              return (
+                <option value={cat.categoryName}>{cat.categoryName} </option>
+              );
             })}
           </select>
           <img

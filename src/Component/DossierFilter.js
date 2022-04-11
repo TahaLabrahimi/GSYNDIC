@@ -45,7 +45,7 @@ export default function DossierFilter({
       <input type="text" placeholder="Filter..." onChange={filterInput} />
       <form>
         <select aria-label="State" class="combo-statut" onChange={filterstatut}>
-          <option selected value="Statut">
+          <option selected value="Statut"  >
             Statut
           </option>
           {Statut.map((st) => {

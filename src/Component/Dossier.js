@@ -8,6 +8,7 @@ export default function Dossier({folder}) {
              {folder.statusNavigation.statusName}
         </div>
         <p>{folder.title}</p>
+      
     </div>
   ); 
 }

@@ -342,7 +342,7 @@
 .formStatut{
   position: absolute;
   top: 0px;
-  left: -20px;
+  left: 8px;
 }
 .combo-Statut {
   position: absolute;
@@ -368,6 +368,12 @@
   margin-top: 25px;
   cursor: pointer
 }
+#removeStatut{
+  
+   margin-left: -200px;
+   cursor: pointer;
+}
+
 #title {
   position: absolute;
   width: 450px;
@@ -482,7 +488,7 @@
   margin-top: -45px;
 }
 #ajouteCategorie {
-  margin-left: 170px;
+  margin-left: 4px;
   top: 0px;
   cursor: pointer
 }
