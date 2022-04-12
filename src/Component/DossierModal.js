@@ -52,7 +52,7 @@ export default function DossierModal({
             <select
               aria-label="State"
               className="combo-Statut"
-              id="comboStatut"
+              id="comboCategorie"
               onChange={OnSaveStatut}
             >
               <option value="Statuts" selected>
@@ -77,30 +77,28 @@ export default function DossierModal({
               />
             ) : null}
           </div>
-          <div className="formStatut-Red">
+          <div className="formCategory">
             <select
-              aria-label="State"
-              className="combo-Statut"
+              aria-label="Category"
+              className="combo-Category"
               id="comboCategorie"
               onChange={OnSaveCategory}
             >
-              <option value="Statuts" selected>
-                Statuts
-              </option>
-              {Categorie.map((st) => {
+              <option value="Category">Categorie</option>
+              {Categorie.map((cat) => {
                 return (
-                  <option value={st.categoryName}>{st.categoryName}</option>
+                  <option value={cat.categoryName}>{cat.categoryName} </option>
                 );
               })}
             </select>
             <img
               src="../Media/add.png"
               alt=""
-              id="ajouteStatut"
+              className="plusCat"
+              id="ajouteCategorie"
               onClick={() => setopenCategory(true)}
             />
-
-            {openStatut ? (
+            {openCategory ? (
               <ModalCategorie
                 setopenCategory={setopenCategory}
                 onChangeCategory={onChangeCategory}

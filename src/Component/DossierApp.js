@@ -64,7 +64,7 @@ export default function DossierApp() {
       if (Nc.categoryName == e.target.value) {
         console.log(Nc.categoryName, e.target.value);
         setNavCateg({
-          idCategory: Math.floor(Math.random() * 100000000000000),
+          idCategory: Math.floor(Math.random() * 10000),
           categoryName: e.target.value,
         });
         test = 1;
@@ -106,6 +106,7 @@ export default function DossierApp() {
       a1 = navCateg;
       s1 = 0;
     }
+    console.log(s1, a1);
     fetch("http://localhost:5052/api/Case", {
       method: "post",
       headers: {
@@ -118,7 +119,7 @@ export default function DossierApp() {
         status: s,
         statusNavigation: a,
         category: s1,
-        categoryNavigation: a1
+        categoryNavigation: a1,
       }),
     }).then((response) => {
       console.log(response);
@@ -167,11 +168,13 @@ export default function DossierApp() {
   function handeCreateStatut(e) {
     setStatut([...Statut, statutcopy]);
     setNewStatus([...newStatus, statutcopy]);
+    console.log(newStatus);
   }
 
   function handleChangeCategory(s) {
     s.preventDefault();
-    setCategoryCopy({ ...CategoryCopy, Categorie: s.target.value });
+    setCategoryCopy({ ...CategoryCopy, categoryName: s.target.value });
+    console.log(CategoryCopy);
   }
 
   function handleCreateCategory(s) {

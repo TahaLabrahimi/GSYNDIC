@@ -20,11 +20,11 @@ function ModalCategorie({
           <input
             type="text"
             class="inputCategory"
-            onChangeCategory={onChangeCategory}
+            onChange={onChangeCategory}
           />
           <button
             className="btn-CreerCategory"
-            onClickCategory={() => {
+            onClick={() => {
               onClickSaveCat();
               onClickCategory();
             }}
