@@ -11,7 +11,7 @@ function ModalStatut({ setopenStatut, onChange, onClick }) {
             <h1>Ajouter un Statut</h1>
           </div>
           <label className="TitreStatut">Statut</label>
-          <input type="text" class="inputStatut" onChange={onChange}  required/>
+          <input type="text" className="inputStatut" onChange={onChange}  required/>
           <button
             className="btn-CreerStatut"
             onClick={() => {

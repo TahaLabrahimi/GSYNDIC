@@ -359,7 +359,7 @@
   cursor: pointer
 }
 
-#comboCategorie {
+#comboStatut {
   margin-left: 370px;
   cursor: pointer
 }
@@ -575,3 +575,8 @@
   outline: none;
 }
 /*------------------------------------*/
+.formStatut-Red{
+  position: absolute;
+  top: 70px;
+  left: 480px;
+}

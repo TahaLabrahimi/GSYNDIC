@@ -10,11 +10,9 @@ export default function DossierApp() {
   const [Folders, setFolders] = useState([]);
   const [foundUsers, setFoundUsers] = useState(Folders);
   const [Categorie, setCategorie] = useState([]);
+  const [newCategory, setNewCategory] = useState([]);
   const [Statut, setStatut] = useState([]);
-  const [newStatus, setNewStatus] = useState({
-    idStatus: null,
-    statusName: "",
-  });
+  const [newStatus, setNewStatus] = useState([]);
   const [statutcopy, setStatutcopy] = useState({
     idStatus: null,
     statusName: "",
@@ -28,35 +26,60 @@ export default function DossierApp() {
   const [changeCategory, setchangeCategory] = useState("");
   const [changeTitre, setchangeTitre] = useState("");
   const [changeDescription, setchangeDescription] = useState("");
-  const [postDossier, setPostDossier] = useState();
+  const [postDossier, setPostDossier] = useState({});
   const [navStatut, setNavStatut] = useState();
+  const [navCateg, setNavCateg] = useState();
   const [idstat, setIdstat] = useState();
   const [idCat, setIdCat] = useState();
   /*--function pour cree dossier*/
 
   function OnSaveStatut(e) {
+    var test = 0;
     setchangeStatut(e.target.value);
     newStatus.map((Ns) => {
       if (Ns.statusName == e.target.value) {
+        console.log(Ns.statusName, e.target.value);
         setNavStatut({
-          idStatus: Math.floor(Math.random() * 100000000000000),
+          idStatus: Math.floor(Math.random() * 10000),
           statusName: e.target.value,
         });
+        test = 1;
       }
     });
-    Statut.map((st) => {
-      if (st.statusName == e.target.value) {
-        return setIdstat(st.idStatus);
-      }
-    });
+    if (test == 1) {
+      console.log("new");
+    } else {
+      Statut.map((st) => {
+        if (st.statusName == e.target.value) {
+          setIdstat(st.idStatus);
+        }
+      });
+      console.log("old");
+    }
   }
   function OnSaveCategory(e) {
+    var test = 0;
     setchangeCategory(e.target.value);
-    Categorie.map((cat) => {
-      if (cat.categoryName == e.target.value) {
-        return setIdCat(cat.idCategory);
+    newCategory.map((Nc) => {
+      if (Nc.categoryName == e.target.value) {
+        console.log(Nc.categoryName, e.target.value);
+        setNavCateg({
+          idCategory: Math.floor(Math.random() * 100000000000000),
+          categoryName: e.target.value,
+        });
+        test = 1;
       }
     });
+    if (test == 1) {
+      console.log("new");
+    } else {
+      Categorie.map((ct) => {
+        if (ct.categoryName == e.target.value) {
+          setIdCat(ct.idCategory);
+        }
+      });
+      console.log("old");
+    }
   }
   function OnSaveTitre(e) {
     setchangeTitre(e.target.value);
@@ -65,6 +88,24 @@ export default function DossierApp() {
     setchangeDescription(e.target.value);
   }
   function onClickCreeDossier() {
+    var s = 0;
+    var s1 = 0;
+    var a = {};
+    var a1 = {};
+    if (navStatut == null) {
+      s = idstat;
+      a = null;
+    } else {
+      a = navStatut;
+      s = 0;
+    }
+    if (navCateg == null) {
+      s1 = idCat;
+      a1 = null;
+    } else {
+      a1 = navCateg;
+      s1 = 0;
+    }
     fetch("http://localhost:5052/api/Case", {
       method: "post",
       headers: {
@@ -74,8 +115,10 @@ export default function DossierApp() {
       body: JSON.stringify({
         title: changeTitre,
         description: changeDescription,
-        category: idCat,
-        status: idstat,
+        status: s,
+        statusNavigation: a,
+        category: s1,
+        categoryNavigation: a1
       }),
     }).then((response) => {
       console.log(response);
@@ -120,10 +163,10 @@ export default function DossierApp() {
   function handleChangeStatut(e) {
     e.preventDefault();
     setStatutcopy({ ...statutcopy, statusName: e.target.value });
-    setNewStatus(statutcopy);
   }
   function handeCreateStatut(e) {
     setStatut([...Statut, statutcopy]);
+    setNewStatus([...newStatus, statutcopy]);
   }
 
   function handleChangeCategory(s) {
@@ -133,6 +176,7 @@ export default function DossierApp() {
 
   function handleCreateCategory(s) {
     setCategorie([...Categorie, CategoryCopy]);
+    setNewCategory([...newCategory, CategoryCopy]);
   }
 
   /*-------------------------------------------------------------*/
