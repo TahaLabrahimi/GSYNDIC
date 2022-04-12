@@ -11,6 +11,10 @@ export default function DossierApp() {
   const [foundUsers, setFoundUsers] = useState(Folders);
   const [Categorie, setCategorie] = useState([]);
   const [Statut, setStatut] = useState([]);
+  const [newStatus, setNewStatus] = useState({
+    idStatus: null,
+    statusName: "",
+  });
   const [statutcopy, setStatutcopy] = useState({
     idStatus: null,
     statusName: "",
@@ -24,12 +28,35 @@ export default function DossierApp() {
   const [changeCategory, setchangeCategory] = useState("");
   const [changeTitre, setchangeTitre] = useState("");
   const [changeDescription, setchangeDescription] = useState("");
+  const [postDossier, setPostDossier] = useState();
+  const [navStatut, setNavStatut] = useState();
+  const [idstat, setIdstat] = useState();
+  const [idCat, setIdCat] = useState();
   /*--function pour cree dossier*/
+
   function OnSaveStatut(e) {
     setchangeStatut(e.target.value);
+    newStatus.map((Ns) => {
+      if (Ns.statusName == e.target.value) {
+        setNavStatut({
+          idStatus: Math.floor(Math.random() * 100000000000000),
+          statusName: e.target.value,
+        });
+      }
+    });
+    Statut.map((st) => {
+      if (st.statusName == e.target.value) {
+        return setIdstat(st.idStatus);
+      }
+    });
   }
   function OnSaveCategory(e) {
     setchangeCategory(e.target.value);
+    Categorie.map((cat) => {
+      if (cat.categoryName == e.target.value) {
+        return setIdCat(cat.idCategory);
+      }
+    });
   }
   function OnSaveTitre(e) {
     setchangeTitre(e.target.value);
@@ -38,26 +65,25 @@ export default function DossierApp() {
     setchangeDescription(e.target.value);
   }
   function onClickCreeDossier() {
-    fetch('http://localhost:5052/api/Case',{
-             method : 'post',
-             headers: {
-                'Content-type': 'application/json; charset=UTF-8',
-                'Access-Control-Allow-Origin': '*'
-             },
-             body :JSON.stringify({
-                title:changeTitre ,
-                description :changeDescription,
-                category : 1,
-                status:1
-             })
-         }).then(response=>{
-             console.log(response)
-             if(response.status==200){
-                 console.log("success")
-             }
-             return response.json
-         })
-  
+    fetch("http://localhost:5052/api/Case", {
+      method: "post",
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+        "Access-Control-Allow-Origin": "*",
+      },
+      body: JSON.stringify({
+        title: changeTitre,
+        description: changeDescription,
+        category: idCat,
+        status: idstat,
+      }),
+    }).then((response) => {
+      console.log(response);
+      if (response.status == 200) {
+        console.log("success");
+      }
+      return response.json;
+    });
   }
   /*------------------------------------------------------------*/
   /*--------------API-------------------------*/
@@ -94,6 +120,7 @@ export default function DossierApp() {
   function handleChangeStatut(e) {
     e.preventDefault();
     setStatutcopy({ ...statutcopy, statusName: e.target.value });
+    setNewStatus(statutcopy);
   }
   function handeCreateStatut(e) {
     setStatut([...Statut, statutcopy]);
