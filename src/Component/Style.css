@@ -7,7 +7,7 @@
 
 .Header {
   background-color: #16221F;
-  height: 10%;
+  height: 70px;
   width: 100%;
   position: fixed;
   z-index: 1;
@@ -16,43 +16,54 @@
 .logo {
   display: flex;
   position: absolute;
+  margin-top: 0.5%;
+  margin-left: 1%;
 }
 
 .logo img {
-  width: 70px;
+  width: 5vw;
   margin-top: 5px;
   margin-left: 10px;
 }
 
 #logo-name {
   color: white;
-  font-size: 50px;
+  font-size: 2.3vw;
   margin-left: 8px;
-  margin-top: 5px;
+  margin-top: 10px;
 }
 
 
-.User img {
+.User1 {
   position: absolute;
+  display: flex;
+  right: 1px;
+  align-items: flex-start;
+  height: 100%;
+  width: 250px;
+}
+
+.User1 img {
+  position: relative;
   width: 50px;
   margin-top: 10px;
-  left: 95%;
+  margin-left: 20px;
 }
 
-.User h2 {
-  position: absolute;
+
+
+.User1 h2 {
+  position: relative;
   color: white;
   font-size: 30px;
-  left: 89%;
-  margin-top: 5px;
+  margin-left: 60%;
+  margin-top: 10px;
 }
 
-.User h3 {
-  position: absolute;
+.User1 h3 {
+  position: relative;
   color: white;
   font-size: 20px;
-  left: 82%;
-  margin-top: 40px;
 }
 
 .side-bar {
@@ -65,24 +76,25 @@
   z-index: 0;
 }
 
-.side-bar #Dossier {
-  align-items: center;
-  height: 37px;
-  width: 178px;
-  background-color: #0e1d19;
+#Dossier {
   margin-top: 350px;
   position: absolute;
-  color: white;
+  color: #fff;
+  padding-top: 10px;
+  background-color: rgba(255, 255, 255, 0.196);
+  width: 13%;
+  height: 7%;
 }
 
-.side-bar p {
-  font-size: 20px;
-  margin-top: 7px;
+#Dossier p {
+  font-size: x-large;
+  font-weight: bold;
+  text-align: center;
 }
 
-.side-bar #Dossier:hover {
-  background-color: white;
-  color: black;
+#Dossier:hover {
+  color: #000;
+  background-color: #fff;
   cursor: pointer;
   transition: 0.8s;
 }
@@ -90,14 +102,16 @@
 .Dossier-Creator {
   position: fixed;
   color: #000000;
-  margin-left: 14%;
+  margin-left: 15%;
+  margin-top: 10px;
 }
 
-.Dossier-Creator p:nth-child(1) {
+.Dossier-Creator p {
   position: absolute;
   margin-top: 80px;
-  font-size: 42px;
-  width: 300px;
+  font-size: 35px;
+  width: 20vw;
+
 }
 
 .Button-CD {
@@ -105,8 +119,8 @@
   padding: 10px;
   display: flex;
   position: absolute;
-  left: 970px;
-  width: 190px;
+  right: 10px;
+  width: 180px;
   border-style: solid;
   border-color: #000000 2px;
   border-radius: 4px;
@@ -114,34 +128,31 @@
 }
 
 .Button-CD img {
-  width: 40px;
+  width: 30px;
 }
 
 .Button-CD p {
   position: absolute;
-  margin-left: 44px;
-  margin-top: 9px;
+  margin-left: 35px;
+  margin-top: 5px;
   font-size: 18px;
-  width: 150px;
+  width: 129px;
   font-weight: bold;
 }
 
 .Button-CD:hover {
-  position: absolute;
   cursor: pointer;
-
 }
 
-.filter{
+.filter {
   position: absolute;
-  background-color: rgb(255, 255, 255);
-  margin-top: 160px;
-  margin-left: 313px;
-  width:68% ;
-  border-radius: 6px;
+  margin-top: 15%;
+  margin-left: 30%;
+  width: 50%;
+  border-radius: 30px;
   height: 50px;
-  border-style: solid;
-  border-color: black 1px;
+  border-radius: 30px;
+  border: 2px solid #000;
 }
 
 
@@ -150,16 +161,16 @@
   position: absolute;
   height: 44px;
   width: 52%;
-  border-top: none;
   border: none;
-  outline: none;
-  background: rgba(255, 253, 253, 0.8);
-  padding-left: 50px;
+  background: transparent;
+  padding-left: 7%;
   font-size: 20px;
   color: rgb(0, 0, 0);
+  border: none;
+  outline: none;
 }
 
-.filter i{
+.filter i {
   position: absolute;
   font-size: 33px;
   margin-top: 5px;
@@ -170,46 +181,47 @@
 
 
 
-.combo-statut {
+.comboStatut {
   font-weight: bold;
   position: absolute;
-  width: 220px;
-  height: 44px;
-  border-top: none;
-  border-bottom: none;
+  height: 46px;
+  background: transparent;
   text-align: center;
-  box-shadow: inset;
-  font-size: 18px;
+  font-size: 1.3vw;
   padding: 10px;
-  margin-left: 482px;
+  margin-left: 55%;
   outline: none;
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
   margin-top: 0px;
+  width: 20%;
+
 }
 
-.combo-Categorie {
+.comboCategorie {
   font-weight: bold;
   outline: none;
   position: absolute;
-  width: 220px;
+  width: 20%;
   height: 44px;
   border-top: none;
   border-bottom: none;
   border-right: none;
   text-align: center;
-  box-shadow: inset;
-  font-size: 18px;
-  padding: 10px;
-  margin-left: 702px;
+  font-size: 1.3vw;
+  margin-left: 78%;
+  background: transparent;
 }
 
 
 .postes {
   position: absolute;
-  width: 950px;
-  height: 430px;
-  box-shadow: 3px 2px 10px rgb(0, 0, 0,0.5);
-  margin-left: 300px;
-  margin-top: 230px;
+  width: 60%;
+  height: 50vh;
+  box-shadow: 3px 2px 10px rgb(0 0 0 / 50%);
+  margin-left: 25%;
+  margin-top: 22%;
   border-radius: 10px;
   overflow-y: scroll;
 
@@ -218,19 +230,21 @@
 
 .note {
   position: relative;
-  width: 850px;
+  width: 90%;
   height: 100px;
   border-radius: 6px;
   margin-top: 20px;
-  margin-left: 50px;
-  box-shadow: 3px 2px 10px rgb(0, 0, 0,0.5);;
+  margin-left: 35px;
+  box-shadow: 3px 2px 10px rgb(0, 0, 0, 0.5);
+  ;
 }
-.note #statut{
+
+.note #statut {
   position: absolute;
-  width: 70px;
+  width: 80px;
   height: 25px;
   margin-top: 40px;
-  margin-left: 770px;
+  margin-left: 84%;
   border-style: solid;
   border-color: #05EF00;
   border-radius: 50px;
@@ -239,139 +253,156 @@
 }
 
 
-.dossier-image{
+.dossier-image {
   position: absolute;
   background-color: #f66060;
   width: 60px;
   height: 60px;
-  border-radius: 100px;
-   top:20px;
-   left: 10px;
+  border-radius: 100%;
+  top: 20%;
+  left: 3%;
 }
-.note p{
+
+.note p {
   position: absolute;
   margin-left: 100px;
   margin-top: 33px;
-  font-size: 25px;
-  font-weight: bold;
+  font-size: 23px;
 }
 
-.modalBackground{
+.modalBackground {
   background-color: rgba(0, 0, 0, 0.479);
   width: 100%;
   height: 100%;
   z-index: 1000;
-  margin: top 500px;
   position: absolute;
+  right: 0;
+  bottom: 0;
 }
 
-.Cree h1{
+.Cree h1 {
   text-align: center;
-  top:20px;
+  top: 10px;
+  left: 4%;
   position: relative;
   color: #ffffff;
   text-shadow: 3px 2px 10px #000000;
   font-family: Hatton;
+  font-size: 40px;
 }
-.modalContainer{
-  width: 700px;
-  height: 600px;
-  background-color:#16221f;
+
+.modalContainer {
+  width: 80%;
+  height: 450px;
+  background-color: #16221f;
   margin: 0 auto;
-  margin-top:50px;
+  margin-top: 40px;
   border-radius: 40px;
   box-shadow: 3px 2px 10px #000000;
+  margin-right: 10%;
+  position: relative;
 }
-.Titre{
-  width: 100px;
-  background-color: rgba(0, 0, 0, 0.479);
-  font-size:29px;
-  margin-left: 310px;
-  margin-top: 50px;
+
+#closeModal {
+  position: absolute;
+  margin-left: 94%;
+  margin-top: -300px;
+  cursor: pointer;
+}
+
+.Titre {
+  width: 20%;
+  font-size: 29px;
+  margin-left: 5%;
+  margin-top: 115px;
   position: absolute;
   color: #ffffff;
   text-align: center;
 }
-.inputTitre{
+
+.inputTitre {
   margin-top: 100px;
-  width: 300px;
+  width: 45%;
   height: 60px;
-  margin-left:200px;
-  border-radius : 9px;
+  margin-left: 30%;
+  border-radius: 9px;
   padding-left: 15px;
-  font-size:18px;
+  font-size: 18px;
   outline: none;
 }
-.Description{
-  width: 150px;
-  background-color: rgba(0, 0, 0, 0.479);
-  font-size:29px;
-  margin-left: 280px;
-  margin-top: 50px;
+
+.Description {
+  width: 21%;
+  font-size: 29px;
+  margin-left: 5%;
+  margin-top: 49px;
   position: absolute;
   color: #ffffff;
   text-align: center;
 }
-.inputDescription{
-  margin-top: 100px;
-  width: 81%;
-  height: 140px;
-  margin-top: 15%;
-  margin-left:8%;
-  border-radius : 9px;
+
+.inputDescription {
+  margin-top: 30px;
+  width: 65%;
+  height: 80px;
+  margin-left: 30%;
+  border-radius: 9px;
   padding-left: 15px;
-  font-size:18px;
+  font-size: 18px;
   outline: none;
 
 }
-.btn-Creer{
-  position: relative;
-  margin-top:50px;
-  margin-left:280px;
+
+.btn-Creer {
+  position: absolute;
+  margin-top: 40px;
+  margin-left: 30%;
   cursor: pointer;
-  width:150px;
+  width: 45%;
   height: 50px;
-  border-radius : 9px;
+  border-radius: 9px;
   background-color: #ffffff;
   color: rgb(0, 0, 0);
-  font-size:18px;
+  font-size: 18px;
   font-family: Hatton;
   box-shadow: 3px 2px 10px #000000;
 }
+
 /*-----combo Statut-------------*/
-.formStatut{
+.formStatut {
   position: absolute;
-  top: 0px;
-  left: 8px;
+  top: 13%;
+  left: 33%;
+  width: 35%;
+  margin-bottom: 400px;
 }
+
 .combo-Statut {
   position: absolute;
-  width: 124px;
+  width: 62%;
   height: 44px;
   border-radius: 35px;
   border-color: #16221f;
   text-align: center;
   box-shadow: inset;
   font-size: 18px;
-  left: -330px;
   top: 20px;
   outline: none;
   cursor: pointer
 }
 
-#comboStatut {
-  margin-left: 370px;
-  cursor: pointer
-}
-#ajouteStatut {
-  margin-left: 170px;
+
+
+.ajouteStatut {
+  margin-left: 70%;
   margin-top: 25px;
-  cursor: pointer
+  cursor: pointer;
+  position: absolute;
 }
-#removeStatut{
-  
-   margin-left: -200px;
-   cursor: pointer;
+
+#removeStatut {
+  margin-left: -200px;
+  cursor: pointer;
 }
 
 #title {
@@ -379,11 +410,11 @@
   width: 450px;
   height: 50px;
   margin-top: 100px;
- 
   margin-left: 610px;
   border-radius: 10px;
   text-align: center;
 }
+
 #title p {
   width: auto;
   position: absolute;
@@ -392,116 +423,136 @@
   font-family: Hatton;
   margin-left: 41px;
 }
+
 /*---------------------------------*/
 /*--------Modal Statut-----------*/
 .StatutBackground {
+
+  background-color: rgba(0, 0, 0, 0.479);
   width: 100%;
   height: 100%;
-  z-index: 1000;
+  z-index: 2000;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+
 }
-.TitreStatut{
+
+#closeModalSt {
+  margin-left: 40px;
+  margin-top: -105px;
+  position: absolute;
+  cursor: pointer;
+}
+
+.TitreStatut {
   width: 100px;
   background-color: rgba(0, 0, 0, 0.479);
-  font-size:23px;
+  font-size: 23px;
   margin-left: 110px;
   margin-top: 28px;
   position: absolute;
   color: #ffffff;
   text-align: center;
 }
-.CreeStatut h1{
+
+.CreeStatut h1 {
   font-size: 25px;
   text-align: center;
-  top:15px;
+  top: 15px;
   position: relative;
   color: #ffffff;
   text-shadow: 3px 2px 10px #000000;
   font-family: Hatton;
 }
 
-.inputStatut{
-  position: absolute;
-  margin-top: 145px;
+.inputStatut {
+  position: relative;
+  margin-top: 55px;
   width: 260px;
   height: 40px;
-  margin-left:-285px;
-  border-radius : 9px;
+  margin-left: 15px;
+  border-radius: 9px;
   padding-left: 15px;
-  font-size:18px;
+  font-size: 18px;
   outline: none;
   border: none;
   color: #000000;
   background: white;
 }
-.btn-CreerStatut{
-  margin-top:115px;
-  margin-left:80px;
+
+.btn-CreerStatut {
+  margin-top: 20px;
+  margin-left: 80px;
   cursor: pointer;
-  width:150px;
+  width: 150px;
   height: 30px;
-  border-radius : 9px;
+  border-radius: 9px;
   background-color: #ffffff;
   color: rgb(0, 0, 0);
   outline: none;
   border: none;
-  font-size:18px;
+  font-size: 18px;
   font-family: Hatton;
   box-shadow: 3px 2px 10px #000000;
 }
-.StatutContainer{
+
+.StatutContainer {
   width: 310px;
-  height:190px;
-  background-color:#16221f;
-  margin-top:0px;
+  height: 190px;
+  background-color: #16221f;
+  margin-top: 180px;
   border-radius: 40px;
   box-shadow: 3px 2px 10px #000000;
-  margin-left: -300px;
+  margin-left: 40%;
 }
+
 /*------------------ --------------*/
 /*-----combo Category-------------*/
-.formCategory{
+.formCategory {
   position: absolute;
-  top: 70px;
-  left: 480px;
+  top: 50px;
+  left: 0%;
+  width: 35%;
+  margin-bottom: 400px;
+
 }
-.combo-Category{
-  position: absolute;
-  width: 124px;
+
+.combo-Category {
+  position: relative;
+  width: 62%;
   height: 44px;
   border-radius: 35px;
   border-color: #16221f;
   text-align: center;
   box-shadow: inset;
   font-size: 18px;
-  left: -330px;
-  top: -50px;
+  margin-bottom: 50px;
   outline: none;
-  cursor: pointer
+  cursor: pointer;
+  left: 6%;
+  top: 30px;
 }
 
-#comboCategorie {
-  margin-left: 370px;
-  cursor: pointer
-}
-.plusCat{
-  position: absolute;
-  margin-top: -45px;
-}
 #ajouteCategorie {
-  margin-left: 4px;
-  top: 0px;
-  cursor: pointer
+  margin-left: 14%;
+  margin-top: 35px;
+  cursor: pointer;
+  position: absolute;
 }
+
 #title {
   position: absolute;
   width: 450px;
   height: 50px;
   margin-top: 100px;
- 
+
   margin-left: 610px;
   border-radius: 10px;
   text-align: center;
 }
+
 #title p {
   width: auto;
   position: absolute;
@@ -510,73 +561,560 @@
   font-family: Hatton;
   margin-left: 41px;
 }
+
 /*---------------------------------*/
 /*--------Modal Category-----------*/
+
 .CategoryBackground {
+  background-color: rgba(0, 0, 0, 0.479);
   width: 100%;
   height: 100%;
-  z-index: 1000;
+  z-index: 2000;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
 }
-.TitreCategory{
+
+#closeModalCat {
+  margin-left: 15%;
+  margin-top: -10px;
+  position: absolute;
+  cursor: pointer;
+}
+
+.TitreCategory {
   width: 100px;
   background-color: rgba(0, 0, 0, 0.479);
-  font-size:23px;
+  font-size: 23px;
   margin-left: 110px;
   margin-top: 28px;
   position: absolute;
   color: #ffffff;
   text-align: center;
 }
-.CreeCategory h1{
+
+.CreeCategory h1 {
   font-size: 25px;
   text-align: center;
-  top:15px;
+  top: 15px;
   position: relative;
   color: #ffffff;
   text-shadow: 3px 2px 10px #000000;
   font-family: Hatton;
+  margin-left: -20px;
 }
 
-.inputCategory{
+.inputCategory {
   position: absolute;
   margin-top: 65px;
   width: 260px;
   height: 40px;
-  margin-left:25px;
-  border-radius : 9px;
+  margin-left: 25px;
+  border-radius: 9px;
   padding-left: 15px;
-  font-size:18px;
+  font-size: 18px;
   outline: none;
   border: none;
 }
-.btn-CreerCategory{
-  margin-top:115px;
-  margin-left:80px;
+
+.btn-CreerCategory {
+  margin-top: 115px;
+  margin-left: 80px;
   cursor: pointer;
-  width:150px;
+  width: 150px;
   height: 30px;
-  border-radius : 9px;
+  border-radius: 9px;
   background-color: #ffffff;
   color: rgb(0, 0, 0);
   outline: none;
   border: none;
-  font-size:18px;
+  font-size: 18px;
   font-family: Hatton;
   box-shadow: 3px 2px 10px #000000;
 }
-.CategoryContainer{
+
+.CategoryContainer {
   width: 310px;
-  height:190px;
-  background-color:#16221f;
-  margin-top:0px;
+  height: 190px;
+  background-color: #16221f;
+  margin-top: 180px;
   border-radius: 40px;
   box-shadow: 3px 2px 10px #000000;
-  margin-left: 230px;
+  margin-left: 530px;
   outline: none;
+  position: absolute;
 }
+
 /*------------------------------------*/
-.formStatut-Red{
+.formStatut-Red {
   position: absolute;
   top: 70px;
   left: 480px;
 }
+
+
+
+
+@media only screen and (max-width:1000px) {
+  .User img {
+    position: absolute;
+    width: 4.6vw;
+    margin-top: 2%;
+    left: 94%;
+  }
+
+  .User h2 {
+    position: absolute;
+    color: white;
+    font-size: 2.3vw;
+    margin-left: 84%;
+    margin-top: 2.5%;
+  }
+
+  .User h3 {
+    position: absolute;
+    color: white;
+    font-size: 1.6vw;
+    margin-left: 80%;
+    margin-top: 5.3%;
+  }
+
+  .logo img {
+    width: 7vw;
+    margin-top: 9px;
+    margin-left: 10px;
+  }
+
+  #logo-name {
+    color: white;
+    font-size: 3vw;
+    margin-left: 8px;
+    margin-top: 15px;
+  }
+
+  .side-bar {
+    background-color: #16221F;
+    position: absolute;
+    color: #000000;
+    width: 13%;
+    height: 100%;
+    text-align: center;
+    z-index: 0;
+  }
+
+  .Dossier-Creator #LD {
+    position: absolute;
+    margin-top: 80px;
+    font-size: 30px;
+    width: 190px;
+
+
+  }
+
+  .Button-CD {
+    margin-top: 80px;
+    padding: 10px;
+    display: flex;
+    position: absolute;
+    right: 10px;
+    width: 180px;
+    border-style: solid;
+    border-color: #000000 2px;
+    border-radius: 4px;
+
+  }
+
+  .Button-CD p {
+    position: absolute;
+    margin-left: 35px;
+    margin-top: 5px;
+    font-size: 18px;
+    width: 129px;
+    font-weight: bold;
+  }
+
+  .filter {
+    position: absolute;
+    margin-top: 20%;
+    margin-left: 23%;
+    width: 70%;
+    border-radius: 30px;
+    height: 45px;
+    border-radius: 30px;
+    border: 2px solid #000;
+  }
+
+  .comboStatut {
+    font-weight: bold;
+    position: absolute;
+    height: 42px;
+    background: transparent;
+    text-align: center;
+    font-size: 1.9vw;
+    padding: 10px;
+    margin-left: 55%;
+    outline: none;
+    border-top: none;
+    border-right: none;
+    border-bottom: none;
+    margin-top: 0px;
+    width: 20%;
+  }
+
+  .comboCategorie {
+    font-weight: bold;
+    outline: none;
+    position: absolute;
+    width: 20%;
+    height: 42px;
+    border-top: none;
+    border-bottom: none;
+    border-right: none;
+    text-align: center;
+    font-size: 1.9vw;
+    margin-left: 78%;
+    background: transparent;
+  }
+
+  .filter input {
+    position: absolute;
+    height: 44px;
+    width: 52%;
+    border: none;
+    background: transparent;
+    padding-left: 8%;
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+    border: none;
+    outline: none;
+  }
+
+  .postes {
+    position: absolute;
+    width: 80%;
+    height: 380px;
+    box-shadow: 3px 2px 10px rgb(0 0 0 / 50%);
+    margin-left: 16%;
+    margin-top: 29%;
+    border-radius: 10px;
+    overflow-y: scroll;
+  }
+}
+
+@media only screen and (max-width:745px) {
+  .side-bar {
+    display: none;
+  }
+
+  #Dossier {
+    margin-top: 80px;
+    position: absolute;
+    color: rgb(255, 255, 255);
+    padding-top: 10px;
+    background-color: #16221f;
+    width: 13%;
+    height: 7%;
+    border-radius: 15px;
+  }
+
+  .postes {
+    position: absolute;
+    width: 98%;
+    height: 400px;
+    box-shadow: 3px 2px 10px rgb(0 0 0 / 50%);
+    margin-left: 10px;
+    margin-top: 230px;
+    border-radius: 10px;
+    overflow-y: scroll;
+  }
+
+  .filter {
+    position: absolute;
+    margin-top: 150px;
+    margin-left: 5%;
+    width: 90%;
+    border-radius: 30px;
+    height: 50px;
+    border-radius: 30px;
+    border: 2px solid #000;
+  }
+}
+
+
+
+/* telephone se et s22 ultra */
+/*@media only screen and (min-width:370px) and (max-width:412px) {
+
+  .User img {
+
+    width: 10vw;
+    margin-top: 5.5%;
+    margin-left: -6%;
+  }
+
+  .User h2 {
+
+    font-size: 5vw;
+    margin-left: 70%;
+    margin-top: 5.5%;
+  }
+
+  .User h3 {
+    width: 50%;
+    font-size: 4vw;
+    margin-left: 51%;
+    margin-top: 12%;
+  }
+
+  .Header {
+    background-color: #16221F;
+    height: 11%;
+
+  }
+
+  .logo {
+    margin-top: 1.5%;
+
+  }
+
+  .side-bar {
+
+    display: none;
+
+  }
+
+  .side-bar #Dossier {
+    margin-top: 130%;
+
+
+  }
+
+  .Dossier-Creator {
+    margin-left: 5%;
+    margin-top: 30%;
+  }
+
+  .Dossier-Creator p {
+
+    margin-top: 5.5vw;
+    font-size: 4vw;
+    width: 25vw;
+
+  }
+
+  .Button-CD {
+    margin-top: 5vw;
+    padding: 10px;
+
+    left: 57vw;
+    width: 35vw;
+
+
+  }
+
+  .Button-CD img {
+    width: 5vw;
+  }
+
+  .Button-CD p {
+
+    margin-left: 15;
+    margin-top: -1%;
+    font-size: 3vw;
+    width: 250px;
+    font-weight: bold;
+
+  }
+
+  .filter {
+    margin-top: 50%;
+    margin-left: 0;
+    width: 100%;
+
+
+  }
+
+  .postes {
+    width: 100%;
+    height: 70vh;
+    margin-left: 0;
+    margin-top: 65%;
+
+  }
+
+  .logo img {
+    width: 15vw;
+    margin-top: 5px;
+    margin-left: 10px;
+  }
+
+  #logo-name {
+    color: white;
+    font-size: 6vw;
+    margin-left: 1px;
+    margin-top: 30px;
+  }
+
+  .note {
+    position: relative;
+    width: 97.5%;
+    height: 80px;
+    border-radius: 6px;
+    margin-top: 20px;
+    margin-left: 5px;
+
+  }
+
+  .note #statut {
+    position: absolute;
+    width: 70px;
+    height: 25px;
+    margin-top: 30px;
+    margin-left: 80%;
+    border-style: solid;
+    border-color: #05EF00;
+    border-radius: 50px;
+    text-align: center;
+
+  }
+
+
+  .dossier-image {
+    position: absolute;
+    background-color: #f66060;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    top: 25%;
+    left: 3%;
+  }
+
+  .note p {
+    position: absolute;
+    margin-left: 100px;
+    margin-top: 25px;
+    font-size: 25px;
+    font-weight: bold;
+  }
+
+  .combo-statut {
+    font-weight: bold;
+    position: absolute;
+    height: 44px;
+    background: transparent;
+    text-align: center;
+    border: none;
+    font-size: 4vw;
+    padding: 10px;
+    margin-left: 50%;
+    outline: none;
+    margin-top: 0px;
+
+  }
+
+  .combo-Categorie {
+    font-weight: bold;
+    outline: none;
+    position: absolute;
+    width: 20%;
+    height: 44px;
+    border-top: none;
+    border-bottom: none;
+    border-right: none;
+    text-align: center;
+    font-size: 3vw;
+    margin-left: 75%;
+    background: transparent;
+  }
+
+
+
+
+
+  .modalBackground {
+    background-color: rgba(0, 0, 0, 0.479);
+    width: 100%;
+    height: 100%;
+
+    margin: top 500px;
+    position: absolute;
+  }
+
+  .Cree h1 {
+    text-align: center;
+    top: 20px;
+    position: relative;
+    color: #ffffff;
+    text-shadow: 3px 2px 10px #000000;
+    font-family: Hatton;
+  }
+
+  .modalContainer {
+    width: 100%;
+    height: 90%;
+    background-color: #16221f;
+    margin: 0 auto;
+    margin-top: 21%;
+    border-radius: 0;
+  }
+
+  .Titre {
+    width: 100px;
+    font-size: 29px;
+    margin-left: 40%;
+    margin-top: 50px;
+    position: absolute;
+    color: #ffffff;
+    text-align: center;
+  }
+
+  .inputTitre {
+    margin-top: 100px;
+    width: 98%;
+    height: 60px;
+    margin-left: 1%;
+    border-radius: 9px;
+    padding-left: 15px;
+    font-size: 18px;
+    outline: none;
+  }
+
+  .Description {
+    width: 150px;
+    font-size: 29px;
+    margin-left: 40%;
+    margin-top: 50px;
+    position: absolute;
+    color: #ffffff;
+    text-align: center;
+  }
+
+  .inputDescription {
+    margin-top: 98%;
+    width: 98%;
+    height: 140px;
+    margin-top: 35%;
+    margin-left: 1%;
+    border-radius: 9px;
+    padding-left: 15px;
+    font-size: 18px;
+    outline: none;
+
+  }
+
+  .btn-Creer {
+    position: relative;
+    margin-top: 50px;
+    margin-left: 40%;
+    cursor: pointer;
+    width: 150px;
+    height: 50px;
+    border-radius: 9px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+    font-family: Hatton;
+    box-shadow: 3px 2px 10px #000000;
+  }
+}*/

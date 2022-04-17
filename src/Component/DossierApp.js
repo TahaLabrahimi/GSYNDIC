@@ -86,6 +86,7 @@ export default function DossierApp() {
   }
   function OnsaveDescription(e) {
     setchangeDescription(e.target.value);
+    
   }
   function onClickCreeDossier() {
     var s = 0;
@@ -99,6 +100,7 @@ export default function DossierApp() {
       a = navStatut;
       s = 0;
     }
+
     if (navCateg == null) {
       s1 = idCat;
       a1 = null;
@@ -106,7 +108,6 @@ export default function DossierApp() {
       a1 = navCateg;
       s1 = 0;
     }
-    console.log(s1, a1);
     fetch("http://localhost:5052/api/Case", {
       method: "post",
       headers: {
@@ -121,13 +122,17 @@ export default function DossierApp() {
         category: s1,
         categoryNavigation: a1,
       }),
-    }).then((response) => {
-      console.log(response);
-      if (response.status == 200) {
-        console.log("success");
-      }
-      return response.json;
-    });
+    })
+      .then((response) => {
+        console.log(response);
+        if (response.status == 200) {
+          console.log("success");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setFoundUsers([...foundUsers, data]);
+      });
   }
   /*------------------------------------------------------------*/
   /*--------------API-------------------------*/
@@ -166,20 +171,33 @@ export default function DossierApp() {
     setStatutcopy({ ...statutcopy, statusName: e.target.value });
   }
   function handeCreateStatut(e) {
-    setStatut([...Statut, statutcopy]);
-    setNewStatus([...newStatus, statutcopy]);
-    console.log(newStatus);
+    if (statutcopy.statusName != "") {
+      setStatut([...Statut, statutcopy]);
+      setNewStatus([...newStatus, statutcopy]);
+      setStatutcopy({
+        idStatus: null,
+        statusName: "",
+      });
+      return 1;
+    } else {
+      return 0;
+    }
   }
 
   function handleChangeCategory(s) {
     s.preventDefault();
     setCategoryCopy({ ...CategoryCopy, categoryName: s.target.value });
-    console.log(CategoryCopy);
   }
 
   function handleCreateCategory(s) {
-    setCategorie([...Categorie, CategoryCopy]);
-    setNewCategory([...newCategory, CategoryCopy]);
+    if (CategoryCopy.categoryName != "") {
+      setCategorie([...Categorie, CategoryCopy]);
+      setNewCategory([...newCategory, CategoryCopy]);
+      setCategoryCopy({ idCategory: null, categoryName: "" });
+      return 1;
+    } else {
+      return 0;
+    }
   }
 
   /*-------------------------------------------------------------*/

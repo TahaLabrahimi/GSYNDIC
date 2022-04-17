@@ -10,30 +10,40 @@ function ModalCategorie({
   }
 
   return (
-    <>
-      <div class="CategoryBackground">
-        <div className="CategoryContainer">
-          <div className="CreeCategory">
-            <h1>Ajouter un Categorie</h1>
-          </div>
-          <label className="TitreCategory">Categorie</label>
+    <div className="CategoryBackground">
+      <div className="CategoryContainer">
+        <div className="CreeCategory">
+          <h1>Ajouter un Categorie</h1>
+        </div>
+        <label className="TitreCategory">Categorie</label>
+
+
           <input
             type="text"
             class="inputCategory"
             onChange={onChangeCategory}
+            required
           />
           <button
+            type="submit"
             className="btn-CreerCategory"
             onClick={() => {
-              onClickSaveCat();
-              onClickCategory();
+              var x = onClickCategory();
+              if (x == 1) {
+                onClickSaveCat();
+              }
             }}
           >
             Creer
           </button>
-        </div>
+          <img
+              src="../Media/closeM.png"
+              alt=""
+              id="closeModalCat"
+              onClick={onClickSaveCat}
+            />
       </div>
-    </>
+    </div>
   );
 }
 

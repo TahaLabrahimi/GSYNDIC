@@ -22,9 +22,9 @@ export default function DossierModal({
     setopen(false);
   }
   return (
-    <div class="modalBackground">
-      <div class="modalContainer">
-        <div class="Cree">
+    <div className="modalBackground">
+      <div className="modalContainer">
+        <div className="Cree">
           <h1>Creer un Dossier</h1>
         </div>
         <label class="Titre">Titre</label>
@@ -46,13 +46,17 @@ export default function DossierModal({
         >
           Creer
         </button>
-
+        <img
+          src="../Media/close.png"
+          alt=""
+          id="closeModal"
+          onClick={closeModal}
+        />
         <form>
           <div className="formStatut">
             <select
               aria-label="State"
               className="combo-Statut"
-              id="comboCategorie"
               onChange={OnSaveStatut}
             >
               <option value="Statuts" selected>
@@ -65,7 +69,7 @@ export default function DossierModal({
             <img
               src="../Media/add.png"
               alt=""
-              id="ajouteStatut"
+              className="ajouteStatut"
               onClick={() => setopenStatut(true)}
             />
 
@@ -76,12 +80,12 @@ export default function DossierModal({
                 onClick={onClick}
               />
             ) : null}
+            
           </div>
           <div className="formCategory">
             <select
               aria-label="Category"
               className="combo-Category"
-              id="comboCategorie"
               onChange={OnSaveCategory}
             >
               <option value="Category">Categorie</option>
@@ -94,7 +98,6 @@ export default function DossierModal({
             <img
               src="../Media/add.png"
               alt=""
-              className="plusCat"
               id="ajouteCategorie"
               onClick={() => setopenCategory(true)}
             />

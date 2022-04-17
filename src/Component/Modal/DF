@@ -1,0 +1,95 @@
+import React, { useState } from "react";
+export default function DossierFilter({
+  Categorie,
+  Statut,
+  Folders,
+  setFoundUsers,
+  foundUsers,
+}) {
+  const [filtSt, setFiltSt] = useState("");
+  const [filtCat, setFiltCat] = useState("");
+  const [filtInp, setFiltInp] = useState("");
+  const Fcat = (st) => {
+    setFoundUsers(["taha","salam"])
+    console.log(foundUsers);
+    const rs = Folders.filter((folder) => {
+      return folder.categoryNavigation.categoryName
+        .toLowerCase()
+        .includes(st.toLowerCase());
+    });
+    setFoundUsers(rs);
+    setFiltCat(st);
+  };
+  const Fst = (st) => {
+    const rs = foundUsers.filter((folder) => {
+      return folder.statusNavigation.statusName
+        .toLowerCase()
+        .includes(st.toLowerCase());
+    });
+    setFoundUsers(rs);
+    setFiltSt(st);
+  };
+  const filterCategory = (e) => {
+    
+    const st = e.target.value;
+    if (st !== "Category") {
+      
+      Fcat(st);
+    } else {
+      setFoundUsers(Folders);
+      if (filtSt != "" || filtSt != "Statut") {
+        console.log(foundUsers);
+        Fst(filtSt);
+      }
+    }
+  };
+
+  const filterstatut = (e) => {
+    const st = e.target.value;
+    if (st !== "Statut") {
+      Fst(st);
+    } else {
+      setFoundUsers(Folders);
+      if (filtCat != "" || filtCat != "Category") {
+        Fcat(filtCat);
+      }
+    }
+  };
+  const filterInput = (e) => {
+    const keyword = e.target.value;
+    if (keyword !== "") {
+      const results = Folders.filter((folder) => {
+        return folder.title.toLowerCase().includes(keyword.toLowerCase());
+      });
+      setFoundUsers(results);
+    } else {
+      setFoundUsers(Folders);
+    }
+  };
+  return (
+    <div class="filter">
+      <i className="bx bx-search"></i>
+      <input type="text" placeholder="Filter..." onChange={filterInput} />
+      <form>
+        <select class="comboStatut" onChange={filterstatut}>
+          <option selected value="Statut">
+            Statut
+          </option>
+          {Statut.map((st) => {
+            return <option value={st.statusName}>{st.statusName}</option>;
+          })}
+        </select>
+      </form>
+      <form>
+        <select class="comboCategorie" onChange={filterCategory}>
+          <option selected value="Category">
+            Category
+          </option>
+          {Categorie.map((cat) => {
+            return <option value={cat.categoryName}>{cat.categoryName}</option>;
+          })}
+        </select>
+      </form>
+    </div>
+  );
+}

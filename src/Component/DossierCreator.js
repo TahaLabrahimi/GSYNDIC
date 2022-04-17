@@ -12,18 +12,17 @@ export default function DossierCreator({
   OnSaveTitre,
   OnsaveDescription,
   onClickCreeDossier,
-  
 }) {
   const [isopen, setopen] = useState(false);
   return (
     <>
       <div className="Dossier-Creator">
-        <p>Les Dossiers</p>
-        <div className="Button-CD" onClick={() => setopen(true)}>
+        <p id="LD">Les Dossiers</p>
+      </div>
+      <div className="Button-CD" onClick={() => setopen(true)}>
           <img src="../Media/plus.png" alt="" />
           <p>Crée Un Dossier</p>
         </div>
-      </div>
       {isopen ? (
         <DossierModal
           isopen={isopen}
