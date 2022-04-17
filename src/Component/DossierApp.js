@@ -47,14 +47,12 @@ export default function DossierApp() {
       }
     });
     if (test == 1) {
-      console.log("new");
     } else {
       Statut.map((st) => {
         if (st.statusName == e.target.value) {
           setIdstat(st.idStatus);
         }
       });
-      console.log("old");
     }
   }
   function OnSaveCategory(e) {
@@ -71,14 +69,12 @@ export default function DossierApp() {
       }
     });
     if (test == 1) {
-      console.log("new");
     } else {
       Categorie.map((ct) => {
         if (ct.categoryName == e.target.value) {
           setIdCat(ct.idCategory);
         }
       });
-      console.log("old");
     }
   }
   function OnSaveTitre(e) {
@@ -136,8 +132,6 @@ export default function DossierApp() {
   }
   /*------------------------------------------------------------*/
   /*--------------API-------------------------*/
-  var Categ = [];
-  var Stat = [];
   var fold = [];
   useEffect(
     async () => {
